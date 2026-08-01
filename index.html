@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Marina 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep: #2E1D38;
+    --bg-panel: #3D2748;
+    --bg-card: #4A2F55;
+    --pink: #FF7FA6;
+    --pink-soft: #FFB3C6;
+    --lilac: #C9A6E0;
+    --gold: #F3C969;
+    --cream: #FBF3E7;
+    --green-ok: #8FD3A6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,127,166,0.18), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 100% 10%, rgba(201,166,224,0.15), transparent 55%),
+      var(--bg-deep);
+    color:var(--cream);
+    font-family:'Nunito', sans-serif;
+    min-height:100vh;
+    padding-bottom:80px;
+  }
+  h1,h2,.display{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  /* HERO */
+  .hero{
+    text-align:center;
+    padding:64px 20px 40px;
+    position:relative;
+  }
+  .hero .eyebrow{
+    display:inline-block;
+    font-size:0.85rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--pink-soft);
+    background:rgba(255,127,166,0.12);
+    border:1px solid rgba(255,127,166,0.35);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    margin:0 0 14px;
+    color:var(--pink-soft);
+    text-shadow:0 4px 24px rgba(255,127,166,0.25);
+  }
+  .hero p{
+    font-size:1.15rem;
+    color:rgba(251,243,231,0.85);
+    max-width:520px;
+    margin:0 auto;
+    line-height:1.55;
+  }
+  .steam{
+    font-size:2rem;
+    opacity:0.8;
+    animation:float 3.5s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    50%{transform:translateY(-10px) rotate(2deg);}
+  }
+
+  /* WARMTH METER */
+  .meter-wrap{
+    max-width:520px;
+    margin:36px auto 0;
+    background:var(--bg-panel);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:18px 22px;
+  }
+  .meter-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.95rem;
+    color:var(--gold);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .meter-track{
+    height:16px;
+    border-radius:999px;
+    background:rgba(0,0,0,0.35);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .meter-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--pink), var(--gold));
+    border-radius:999px;
+    transition:width 0.6s ease;
+  }
+  .meter-msg{
+    margin-top:10px;
+    font-size:0.9rem;
+    color:rgba(251,243,231,0.7);
+    text-align:center;
+  }
+
+  /* GAMES GRID */
+  .games{
+    margin-top:56px;
+  }
+  .games h2{
+    text-align:center;
+    font-size:2.2rem;
+    color:var(--lilac);
+    margin-bottom:28px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  @media(max-width:640px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:18px;
+    padding:22px;
+    cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position:relative;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,0.35);
+    border-color:rgba(255,127,166,0.4);
+  }
+  .card .icon{font-size:2.2rem;}
+  .card h3{
+    font-family:'Nunito';
+    font-weight:800;
+    font-size:1.15rem;
+    margin:10px 0 6px;
+    color:var(--cream);
+  }
+  .card p{
+    font-size:0.9rem;
+    color:rgba(251,243,231,0.65);
+    margin:0;
+    line-height:1.4;
+  }
+  .card .done-badge{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:var(--green-ok);
+    color:#1c2b20;
+    font-size:0.75rem;
+    font-weight:800;
+    padding:3px 10px;
+    border-radius:999px;
+    display:none;
+  }
+  .card.completed .done-badge{display:inline-block;}
+
+  /* MODAL */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(20,10,25,0.72);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--bg-panel);
+    border-radius:22px;
+    padding:26px;
+    width:100%;
+    max-width:480px;
+    max-height:88vh;
+    overflow-y:auto;
+    border:1px solid rgba(255,255,255,0.08);
+    position:relative;
+  }
+  .modal h3{
+    font-family:'Caveat';
+    font-size:2rem;
+    color:var(--pink-soft);
+    margin:0 0 4px;
+  }
+  .modal .close{
+    position:absolute;
+    top:16px;right:18px;
+    background:none;border:none;
+    color:var(--cream);
+    font-size:1.3rem;
+    cursor:pointer;
+    opacity:0.6;
+  }
+  .modal .close:hover{opacity:1;}
+  .modal-body{margin-top:14px;}
+
+  /* BUBBLE POP */
+  .bubble-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:8px;
+    margin-top:10px;
+  }
+  .bubble{
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.55), var(--pink) 70%);
+    box-shadow:inset 0 0 8px rgba(255,255,255,0.4), 0 2px 6px rgba(0,0,0,0.3);
+    cursor:pointer;
+    transition:transform 0.08s ease;
+  }
+  .bubble:active{transform:scale(0.85);}
+  .bubble.popped{
+    background:rgba(255,255,255,0.05);
+    box-shadow:inset 0 2px 6px rgba(0,0,0,0.5);
+    cursor:default;
+  }
+
+  /* MEMORY */
+  .memo-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:8px;
+    margin-top:10px;
+  }
+  .memo-card{
+    aspect-ratio:1;
+    border-radius:12px;
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;
+    cursor:pointer;
+    user-select:none;
+  }
+  .memo-card .face{display:none;}
+  .memo-card.flipped .face, .memo-card.matched .face{display:block;}
+  .memo-card.flipped, .memo-card.matched{background:var(--bg-panel);border-color:var(--pink);}
+  .memo-card.matched{opacity:0.5;cursor:default;}
+
+  /* CATCHER */
+  #catchCanvas{
+    width:100%;
+    background:linear-gradient(180deg, #402850, #2E1D38);
+    border-radius:14px;
+    touch-action:none;
+    display:block;
+  }
+  .game-hud{
+    display:flex;justify-content:space-between;
+    font-size:0.9rem;color:var(--gold);
+    margin:8px 0;font-weight:700;
+  }
+  .start-btn{
+    margin-top:14px;
+    background:var(--pink);
+    color:#2E1D38;
+    border:none;
+    font-weight:800;
+    padding:10px 20px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .start-btn:hover{background:var(--pink-soft);}
+
+  /* TETRIS */
+  .tetris-controls{
+    display:flex;gap:10px;justify-content:center;margin-top:12px;
+  }
+  .tetris-btn{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.15);
+    color:var(--cream);
+    width:48px;height:48px;
+    border-radius:12px;
+    font-size:1.2rem;
+    cursor:pointer;
+  }
+  .tetris-btn:active{background:var(--pink);}
+
+  /* COMPLIMENT */
+  .compliment-box{
+    background:var(--bg-card);
+    border:1px dashed rgba(255,127,166,0.4);
+    border-radius:16px;
+    padding:24px;
+    text-align:center;
+    font-family:'Caveat';
+    font-size:1.5rem;
+    color:var(--pink-soft);
+    min-height:90px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* FINAL MESSAGE */
+  .final-overlay{
+    position:fixed;inset:0;
+    background:rgba(20,10,25,0.85);
+    display:none;
+    align-items:center;justify-content:center;
+    z-index:60;padding:20px;
+  }
+  .final-overlay.open{display:flex;}
+  .final-card{
+    background:linear-gradient(160deg, var(--bg-panel), var(--bg-card));
+    border:1px solid rgba(255,127,166,0.4);
+    border-radius:24px;
+    padding:36px;
+    max-width:480px;
+    text-align:center;
+  }
+  .final-card .big-emoji{font-size:3rem;}
+  .final-card h2{color:var(--pink-soft);font-size:2.4rem;margin:10px 0;}
+  .final-card p{color:rgba(251,243,231,0.85);line-height:1.6;}
+
+  footer{
+    text-align:center;
+    color:rgba(251,243,231,0.4);
+    font-size:0.8rem;
+    margin-top:60px;
+  }
+</style>
+</head>
+<body>
+
+<button id="soundToggle" onclick="toggleSound()" title="Звук вкл/выкл" style="position:fixed;top:16px;right:16px;z-index:40;background:var(--bg-card);border:1px solid rgba(255,255,255,0.15);color:var(--cream);width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;">🔊</button>
+
+<div style="position:fixed;top:16px;left:16px;z-index:40;background:var(--bg-card);border:1px solid rgba(255,255,255,0.15);border-radius:999px;padding:8px 12px;font-size:0.78rem;display:flex;gap:6px;align-items:center;">
+  <a href="index.html" style="color:var(--pink-soft);text-decoration:none;font-weight:800;">RU</a>
+  <span style="opacity:0.3;">|</span>
+  <a href="index-es.html" style="color:rgba(251,243,231,0.5);text-decoration:none;">ES</a>
+</div>
+
+<div class="hero">
+  <div class="steam">☕🫖</div>
+  <div class="eyebrow">маленький тёплый уголок</div>
+  <h1>Для Marina</h1>
+  <p>Знаю, что тебе сейчас не очень. Сделал(а) для тебя немного уюта — поиграй, отвлекись, и пусть станет капельку теплее 💗</p>
+
+  <div class="meter-wrap">
+    <div class="meter-label">
+      <span>Счётчик уюта</span>
+      <span id="meterPct">0%</span>
+    </div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    <div class="meter-msg" id="meterMsg">Поиграй в игры ниже, чтобы наполнить его теплом ✨</div>
+    <div style="text-align:center;margin-top:8px;">
+      <a href="#" id="resetLink" style="font-size:0.75rem;color:rgba(251,243,231,0.35);text-decoration:none;">сбросить прогресс ↺</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap games">
+  <h2>Мини-игры</h2>
+  <div class="grid">
+
+    <div class="card" data-game="tetris">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🧱</div>
+      <h3>Тетрис</h3>
+      <p>Собирай линии и немного отвлекись от всего.</p>
+    </div>
+
+    <div class="card" data-game="memory">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🧠</div>
+      <h3>Мемори</h3>
+      <p>Найди все пары уютных вещей.</p>
+    </div>
+
+    <div class="card" data-game="catcher">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">💗</div>
+      <h3>Лови сердечки</h3>
+      <p>Двигай корзинку и лови падающие сердечки.</p>
+    </div>
+
+    <div class="card" data-game="compliments">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🌸</div>
+      <h3>Тёплые слова</h3>
+      <p>Нажимай и получай маленькие комплименты.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>сделано с любовью, специально для Marina</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="close" id="modalClose">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="final-overlay" id="finalOverlay">
+  <div class="final-card">
+    <div class="big-emoji">🎉💗🫖</div>
+    <h2>Уют на максимуме!</h2>
+    <p>Ты справилась со всеми играми. Помни: это временно, а ты — сильная. Закутайся в плед, налей чай и будь к себе понежнее сегодня. Обнимаю 🤍</p>
+    <button class="start-btn" id="finalClose">Спасибо 💗</button>
+  </div>
+</div>
+
+<script>
+// ---------- SOUND ----------
+let audioCtx = null;
+let soundOn = true;
+function ensureAudio(){
+  if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+}
+function tone(freq, start, dur, type='sine', gainVal=0.15){
+  if(!soundOn) return;
+  ensureAudio();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  const t0 = audioCtx.currentTime + start;
+  gain.gain.setValueAtTime(0, t0);
+  gain.gain.linearRampToValueAtTime(gainVal, t0+0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, t0+dur);
+  osc.connect(gain).connect(audioCtx.destination);
+  osc.start(t0);
+  osc.stop(t0+dur+0.02);
+}
+function playPop(){ tone(600+Math.random()*300, 0, 0.12, 'triangle', 0.18); }
+function playFlip(){ tone(320, 0, 0.08, 'square', 0.08); }
+function playMatch(){ tone(523,0,0.12,'sine',0.15); tone(659,0.1,0.15,'sine',0.15); tone(784,0.2,0.2,'sine',0.15); }
+function playMismatch(){ tone(180,0,0.18,'sawtooth',0.1); }
+function playCatch(){ tone(700,0,0.08,'sine',0.15); tone(950,0.06,0.1,'sine',0.12); }
+function playMiss(){ tone(140,0,0.15,'sawtooth',0.08); }
+function playChime(){ tone(660,0,0.15,'sine',0.15); tone(880,0.1,0.2,'sine',0.12); }
+function playVictory(){ [523,659,784,1046].forEach((f,i)=>tone(f, i*0.14, 0.25, 'sine', 0.16)); }
+function playMove(){ tone(400,0,0.05,'square',0.06); }
+function playLock(){ tone(220,0,0.1,'triangle',0.14); }
+function playGameOver(){ tone(300,0,0.15,'sawtooth',0.12); tone(200,0.12,0.25,'sawtooth',0.12); }
+function toggleSound(){
+  soundOn = !soundOn;
+  document.getElementById('soundToggle').textContent = soundOn ? '🔊' : '🔇';
+  if(soundOn){ ensureAudio(); tone(500,0,0.08,'sine',0.1); }
+}
+
+// ---------- WARMTH METER ----------
+const completed = new Set();
+const totalGames = 4;
+function updateMeter(celebrate=true){
+  const pct = Math.round((completed.size/totalGames)*100);
+  document.getElementById('meterFill').style.width = pct+'%';
+  document.getElementById('meterPct').textContent = pct+'%';
+  const msgs = [
+    'Поиграй в игры ниже, чтобы наполнить его теплом ✨',
+    'Уже теплее! Продолжай 🌷',
+    'Половина пути — ты умница!',
+    'Ещё чуть-чуть и будет совсем уютно...',
+    'Полный уют! Спасибо, что поиграла 💗'
+  ];
+  document.getElementById('meterMsg').textContent = msgs[completed.size];
+  localStorage.setItem('marinaProgress', JSON.stringify([...completed]));
+  if(completed.size === totalGames && celebrate){
+    playVictory();
+    setTimeout(()=>document.getElementById('finalOverlay').classList.add('open'), 500);
+  }
+}
+function markCompleted(game){
+  if(completed.has(game)) return;
+  completed.add(game);
+  document.querySelector(`.card[data-game="${game}"]`).classList.add('completed');
+  updateMeter();
+}
+
+// ---------- MODAL ----------
+const overlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+document.getElementById('modalClose').onclick = closeModal;
+overlay.onclick = (e)=>{ if(e.target===overlay) closeModal(); };
+document.getElementById('finalClose').onclick = ()=>document.getElementById('finalOverlay').classList.remove('open');
+
+let tetrisInterval = null;
+let tetrisKeyHandler = null;
+
+function closeModal(){
+  overlay.classList.remove('open');
+  modalContent.innerHTML='';
+  if(catcherLoop) cancelAnimationFrame(catcherLoop);
+  if(tetrisInterval){ clearInterval(tetrisInterval); tetrisInterval=null; }
+  if(tetrisKeyHandler){ document.removeEventListener('keydown', tetrisKeyHandler); tetrisKeyHandler=null; }
+}
+
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click', ()=>openGame(card.dataset.game));
+});
+
+function openGame(game){
+  overlay.classList.add('open');
+  if(game==='tetris') renderTetris();
+  if(game==='memory') renderMemory();
+  if(game==='catcher') renderCatcher();
+  if(game==='compliments') renderCompliments();
+}
+
+// ---------- TETRIS ----------
+function renderTetris(){
+  const cols=10, rows=16, cell=22;
+  let board = Array.from({length:rows}, ()=>Array(cols).fill(0));
+  const pieces = {
+    I:{matrix:[[1,1,1,1]], color:'#FFB3C6'},
+    O:{matrix:[[1,1],[1,1]], color:'#F3C969'},
+    T:{matrix:[[0,1,0],[1,1,1]], color:'#C9A6E0'},
+    S:{matrix:[[0,1,1],[1,1,0]], color:'#8FD3A6'},
+    Z:{matrix:[[1,1,0],[0,1,1]], color:'#FF7FA6'},
+    J:{matrix:[[1,0,0],[1,1,1]], color:'#FBF3E7'},
+    L:{matrix:[[0,0,1],[1,1,1]], color:'#F3925A'}
+  };
+  const keys = Object.keys(pieces);
+  const goal = 5;
+  let linesCleared = 0;
+  let current = null;
+  let gameOver = false;
+
+  modalContent.innerHTML = `
+    <h3>Тетрис 🧱</h3>
+    <p style="color:rgba(251,243,231,0.7);font-size:0.9rem;">Собери ${goal} линий. Стрелки или кнопки ниже, пробел — сброс вниз.</p>
+    <div class="game-hud"><span id="tetrisLines">Линии: 0</span><span>Цель: ${goal}</span></div>
+    <canvas id="tetrisCanvas" width="${cols*cell}" height="${rows*cell}" style="background:linear-gradient(180deg,#402850,#2E1D38);border-radius:14px;display:block;margin:0 auto;"></canvas>
+    <div class="tetris-controls">
+      <button class="tetris-btn" id="tLeft">⬅️</button>
+      <button class="tetris-btn" id="tRotate">🔄</button>
+      <button class="tetris-btn" id="tRight">➡️</button>
+      <button class="tetris-btn" id="tDown">⬇️</button>
+    </div>
+    <div id="tetrisMsg" style="text-align:center;margin-top:10px;color:rgba(251,243,231,0.7);font-size:0.85rem;"></div>
+  `;
+
+  const canvas = document.getElementById('tetrisCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function newPiece(){
+    const key = keys[Math.floor(Math.random()*keys.length)];
+    const p = pieces[key];
+    const mat = p.matrix.map(r=>[...r]);
+    return { matrix: mat, color: p.color, x: Math.floor(cols/2)-Math.ceil(mat[0].length/2), y: 0 };
+  }
+
+  function collide(piece, offX, offY, matrix){
+    const mat = matrix || piece.matrix;
+    for(let r=0;r<mat.length;r++){
+      for(let c=0;c<mat[r].length;c++){
+        if(!mat[r][c]) continue;
+        const nx = piece.x+c+offX;
+        const ny = piece.y+r+offY;
+        if(nx<0||nx>=cols||ny>=rows) return true;
+        if(ny>=0 && board[ny][nx]) return true;
+      }
+    }
+    return false;
+  }
+
+  function rotateMatrix(matrix){
+    const N=matrix.length, M=matrix[0].length;
+    const res=[];
+    for(let x=0;x<M;x++){
+      const row=[];
+      for(let y=N-1;y>=0;y--) row.push(matrix[y][x]);
+      res.push(row);
+    }
+    return res;
+  }
+
+  function merge(){
+    current.matrix.forEach((row,r)=>{
+      row.forEach((val,c)=>{
+        if(val){
+          const ny=current.y+r, nx=current.x+c;
+          if(ny>=0) board[ny][nx]=current.color;
+        }
+      });
+    });
+  }
+
+  function sweep(){
+    let cleared=0;
+    for(let r=rows-1;r>=0;r--){
+      if(board[r].every(v=>v)){
+        board.splice(r,1);
+        board.unshift(Array(cols).fill(0));
+        cleared++;
+        r++;
+      }
+    }
+    if(cleared>0){
+      linesCleared+=cleared;
+      playMatch();
+      document.getElementById('tetrisLines').textContent = 'Линии: '+linesCleared;
+      if(linesCleared>=goal){
+        markCompleted('tetris');
+        document.getElementById('tetrisMsg').textContent = 'Отлично! Можешь продолжать играть 💗';
+      }
+    }
+  }
+
+  function spawnNew(){
+    current = newPiece();
+    if(collide(current,0,0)){
+      gameOver = true;
+      clearInterval(tetrisInterval);
+      playGameOver();
+      document.getElementById('tetrisMsg').textContent = 'Стакан переполнен — открой игру заново, чтобы попробовать снова.';
+    }
+  }
+
+  function drop(){
+    if(gameOver) return;
+    if(!collide(current,0,1)){
+      current.y++;
+    } else {
+      merge();
+      playLock();
+      sweep();
+      spawnNew();
+    }
+    draw();
+  }
+
+  function move(dir){
+    if(gameOver) return;
+    if(!collide(current,dir,0)){ current.x+=dir; playMove(); draw(); }
+  }
+
+  function rotate(){
+    if(gameOver) return;
+    const rotated = rotateMatrix(current.matrix);
+    const kicks=[0,-1,1,-2,2];
+    for(const k of kicks){
+      if(!collide(current, k, 0, rotated)){
+        current.matrix = rotated;
+        current.x += k;
+        playFlip();
+        draw();
+        return;
+      }
+    }
+  }
+
+  function drawCell(x,y,color){
+    if(y<0) return;
+    ctx.fillStyle=color;
+    ctx.fillRect(x*cell+1,y*cell+1,cell-2,cell-2);
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(board[r][c]) drawCell(c,r,board[r][c]);
+      }
+    }
+    if(current){
+      current.matrix.forEach((row,r)=>{
+        row.forEach((val,c)=>{
+          if(val) drawCell(current.x+c, current.y+r, current.color);
+        });
+      });
+    }
+  }
+
+  spawnNew();
+  draw();
+  tetrisInterval = setInterval(drop, 650);
+
+  tetrisKeyHandler = (e)=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key==='ArrowLeft'){ move(-1); e.preventDefault(); }
+    else if(e.key==='ArrowRight'){ move(1); e.preventDefault(); }
+    else if(e.key==='ArrowDown'){ drop(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'){ rotate(); e.preventDefault(); }
+    else if(e.key===' '){ while(!collide(current,0,1)){ current.y++; } drop(); e.preventDefault(); }
+  };
+  document.addEventListener('keydown', tetrisKeyHandler);
+
+  document.getElementById('tLeft').onclick=()=>move(-1);
+  document.getElementById('tRight').onclick=()=>move(1);
+  document.getElementById('tRotate').onclick=()=>rotate();
+  document.getElementById('tDown').onclick=()=>drop();
+}
+
+// ---------- MEMORY ----------
+function renderMemory(){
+  const emojis = ['🍵','🧸','🧦','📖','🍫','🕯️','🛁','🐱'];
+  let deck = [...emojis, ...emojis];
+  deck.sort(()=>Math.random()-0.5);
+  modalContent.innerHTML = `
+    <h3>Мемори 🧠</h3>
+    <p style="color:rgba(251,243,231,0.7);font-size:0.9rem;">Найди все пары уютных вещей.</p>
+    <div class="memo-grid" id="memoGrid"></div>
+  `;
+  const grid = document.getElementById('memoGrid');
+  let flipped = [];
+  let lock = false;
+  let matches = 0;
+  deck.forEach((emoji, idx)=>{
+    const cardEl = document.createElement('div');
+    cardEl.className='memo-card';
+    cardEl.dataset.emoji=emoji;
+    cardEl.innerHTML = `<span class="face">${emoji}</span>`;
+    cardEl.onclick = ()=>{
+      if(lock || cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+      cardEl.classList.add('flipped');
+      playFlip();
+      flipped.push(cardEl);
+      if(flipped.length===2){
+        lock = true;
+        const [a,b] = flipped;
+        if(a.dataset.emoji === b.dataset.emoji){
+          a.classList.add('matched'); b.classList.add('matched');
+          playMatch();
+          matches++;
+          flipped=[]; lock=false;
+          if(matches===emojis.length) markCompleted('memory');
+        } else {
+          playMismatch();
+          setTimeout(()=>{
+            a.classList.remove('flipped'); b.classList.remove('flipped');
+            flipped=[]; lock=false;
+          }, 700);
+        }
+      }
+    };
+    grid.appendChild(cardEl);
+  });
+}
+
+// ---------- CATCHER ----------
+let catcherLoop = null;
+function renderCatcher(){
+  modalContent.innerHTML = `
+    <h3>Лови сердечки 💗</h3>
+    <div class="game-hud"><span id="catchScore">Счёт: 0</span><span>Цель: 15</span></div>
+    <canvas id="catchCanvas" width="400" height="320"></canvas>
+    <button class="start-btn" id="catchStart">Начать</button>
+  `;
+  const canvas = document.getElementById('catchCanvas');
+  const ctx = canvas.getContext('2d');
+  let basketX = canvas.width/2;
+  const basketW = 60, basketH = 16;
+  let hearts = [];
+  let score = 0;
+  let running = false;
+
+  function spawnHeart(){
+    hearts.push({x: Math.random()*(canvas.width-20)+10, y:-10, speed: 1.5+Math.random()*1.8});
+  }
+  let spawnTimer = 0;
+
+  function pointerMove(clientX){
+    const rect = canvas.getBoundingClientRect();
+    const scale = canvas.width/rect.width;
+    basketX = (clientX-rect.left)*scale;
+    basketX = Math.max(basketW/2, Math.min(canvas.width-basketW/2, basketX));
+  }
+  canvas.addEventListener('mousemove', e=>pointerMove(e.clientX));
+  canvas.addEventListener('touchmove', e=>{ pointerMove(e.touches[0].clientX); e.preventDefault(); }, {passive:false});
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    // basket
+    ctx.fillStyle='#FF7FA6';
+    ctx.beginPath();
+    ctx.roundRect(basketX-basketW/2, canvas.height-30, basketW, basketH, 8);
+    ctx.fill();
+    // hearts
+    ctx.font='22px sans-serif';
+    hearts.forEach(h=>{
+      ctx.fillText('💗', h.x-11, h.y);
+    });
+  }
+
+  let frameCount = 0;
+  function loop(){
+    if(!running) return;
+    frameCount++;
+    spawnTimer++;
+    const spawnRate = Math.max(22, 45 - Math.floor(frameCount/240)*4);
+    if(spawnTimer>spawnRate){ spawnHeart(); spawnTimer=0; }
+    hearts.forEach(h=> h.y += h.speed);
+    hearts = hearts.filter(h=>{
+      if(h.y > canvas.height-34 && h.y < canvas.height-14 && Math.abs(h.x-basketX)<basketW/2+10){
+        score++;
+        playCatch();
+        document.getElementById('catchScore').textContent = 'Счёт: '+score;
+        if(score>=15 && running){
+          running=false;
+          markCompleted('catcher');
+        }
+        return false;
+      }
+      if(h.y >= canvas.height+20){ playMiss(); return false; }
+      return true;
+    });
+    draw();
+    catcherLoop = requestAnimationFrame(loop);
+  }
+
+  document.getElementById('catchStart').onclick = ()=>{
+    score=0; hearts=[]; running=true;
+    document.getElementById('catchScore').textContent='Счёт: 0';
+    loop();
+  };
+  draw();
+}
+
+// ---------- COMPLIMENTS ----------
+function renderCompliments(){
+  const lines = [
+    'Ты справляешься лучше, чем думаешь.',
+    'Сегодня можно ничего не успевать — и это нормально.',
+    'Твоя улыбка правда делает мир теплее.',
+    'Ты имеешь право на отдых, плед и тишину.',
+    'Кто-то сейчас думает о тебе с теплотой (это я).',
+    'Ты сильная, даже когда чувствуешь себя иначе.',
+    'Разреши себе побыть слабой сегодня — завтра снова будешь супергероиней.',
+    'Ты заслуживаешь чашку горячего чая прямо сейчас.'
+  ];
+  let seen = new Set();
+  modalContent.innerHTML = `
+    <h3>Тёплые слова 🌸</h3>
+    <div class="compliment-box" id="complimentText">Нажми кнопку, чтобы получить тёплые слова</div>
+    <button class="start-btn" id="complimentBtn" style="margin-top:16px;">Ещё 💗</button>
+  `;
+  document.getElementById('complimentBtn').onclick = ()=>{
+    if(seen.size>=lines.length) seen.clear();
+    let idx;
+    do{ idx = Math.floor(Math.random()*lines.length); } while(seen.has(idx));
+    seen.add(idx);
+    document.getElementById('complimentText').textContent = lines[idx];
+    playChime();
+    if(seen.size>=3) markCompleted('compliments');
+  };
+}
+
+// ---------- RESTORE / RESET ----------
+(function restoreProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem('marinaProgress')||'[]');
+    saved.forEach(g=>{
+      completed.add(g);
+      const card = document.querySelector(`.card[data-game="${g}"]`);
+      if(card) card.classList.add('completed');
+    });
+    if(saved.length) updateMeter(false);
+  }catch(e){}
+})();
+
+function resetProgress(){
+  completed.clear();
+  localStorage.removeItem('marinaProgress');
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('completed'));
+  updateMeter(false);
+}
+document.getElementById('resetLink').onclick = resetProgress;
+</script>
+</body>
+</html>
