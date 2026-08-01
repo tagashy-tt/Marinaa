@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Marina 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep: #2E1D38;
+    --bg-panel: #3D2748;
+    --bg-card: #4A2F55;
+    --pink: #FF7FA6;
+    --pink-soft: #FFB3C6;
+    --lilac: #C9A6E0;
+    --gold: #F3C969;
+    --cream: #FBF3E7;
+    --green-ok: #8FD3A6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,127,166,0.18), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 100% 10%, rgba(201,166,224,0.15), transparent 55%),
+      var(--bg-deep);
+    color:var(--cream);
+    font-family:'Nunito', sans-serif;
+    min-height:100vh;
+    padding-bottom:80px;
+    overflow-x:hidden;
+  }
+  h1,h2,.display{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  /* SPARKLES */
+  .sparkle-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+  .sparkle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.55);
+    animation:sparkleFloat linear infinite;
+  }
+  @keyframes sparkleFloat{
+    0%{transform:translateY(0) scale(1);opacity:0;}
+    10%{opacity:0.8;}
+    90%{opacity:0.5;}
+    100%{transform:translateY(-120px) scale(0.4);opacity:0;}
+  }
+
+  /* HERO */
+  .hero{
+    text-align:center;
+    padding:64px 20px 40px;
+    position:relative;
+  }
+  .hero .eyebrow{
+    display:inline-block;
+    font-size:0.85rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--pink-soft);
+    background:rgba(255,127,166,0.12);
+    border:1px solid rgba(255,127,166,0.35);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
+    position:relative;
+    z-index:1;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    margin:0 0 14px;
+    color:var(--pink-soft);
+    text-shadow:0 4px 24px rgba(255,127,166,0.25);
+    position:relative;
+    z-index:1;
+  }
+  .hero p{
+    font-size:1.15rem;
+    color:rgba(251,243,231,0.85);
+    max-width:520px;
+    margin:0 auto;
+    line-height:1.55;
+    position:relative;
+    z-index:1;
+  }
+  .steam{
+    font-size:2rem;
+    opacity:0.8;
+    animation:float 3.5s ease-in-out infinite;
+    position:relative;
+    z-index:1;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    50%{transform:translateY(-10px) rotate(2deg);}
+  }
+
+  /* WARMTH METER */
+  .meter-wrap{
+    max-width:520px;
+    margin:36px auto 0;
+    background:var(--bg-panel);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:18px 22px;
+    position:relative;
+    z-index:1;
+  }
+  .meter-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.95rem;
+    color:var(--gold);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .meter-track{
+    height:16px;
+    border-radius:999px;
+    background:rgba(0,0,0,0.35);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .meter-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--pink), var(--gold));
+    border-radius:999px;
+    transition:width 0.6s ease;
+  }
+  .meter-msg{
+    margin-top:10px;
+    font-size:0.9rem;
+    color:rgba(251,243,231,0.7);
+    text-align:center;
+  }
+
+  /* GAMES GRID */
+  .games{
+    margin-top:56px;
+  }
+  .games h2{
+    text-align:center;
+    font-size:2.2rem;
+    color:var(--lilac);
+    margin-bottom:28px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  @media(max-width:640px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:18px;
+    padding:22px;
+    cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position:relative;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,0.35);
+    border-color:rgba(255,127,166,0.4);
+  }
+  .card .icon{font-size:2.2rem;}
+  .card h3{
+    font-family:'Nunito';
+    font-weight:800;
+    font-size:1.15rem;
+    margin:10px 0 6px;
+    color:var(--cream);
+  }
+  .card p{
+    font-size:0.9rem;
+    color:rgba(251,243,231,0.65);
+    margin:0;
+    line-height:1.4;
+  }
+  .card .done-badge{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:var(--green-ok);
+    color:#1c2b20;
+    font-size:0.75rem;
+    font-weight:800;
+    padding:3px 10px;
+    border-radius:999px;
+    display:none;
+  }
+  .card.completed .done-badge{display:inline-block;}
+
+  /* MODAL */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(20,10,25,0.72);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--bg-panel);
+    border-radius:22px;
+    padding:26px;
+    width:100%;
+    max-width:480px;
+    max-height:88vh;
+    overflow-y:auto;
+    border:1px solid rgba(255,255,255,0.08);
+    position:relative;
+  }
+  .modal h3{
+    font-family:'Caveat';
+    font-size:2rem;
+    color:var(--pink-soft);
+    margin:0 0 4px;
+  }
+  .modal .close{
+    position:absolute;
+    top:16px;right:18px;
+    background:none;border:none;
+    color:var(--cream);
+    font-size:1.3rem;
+    cursor:pointer;
+    opacity:0.6;
+  }
+  .modal .close:hover{opacity:1;}
+  .modal-body{margin-top:14px;}
+  .modal-sub{color:rgba(251,243,231,0.7);font-size:0.9rem;text-align:center;margin:6px 0 4px;}
+
+  /* DIFFICULTY */
+  .diff-select{display:flex;gap:10px;justify-content:center;margin:18px 0 4px;flex-wrap:wrap;}
+  .diff-btn{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.15);
+    color:var(--cream);
+    padding:10px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:0.88rem;
+  }
+  .diff-btn:hover{border-color:var(--pink);}
+  .diff-btn.easy:hover{border-color:var(--green-ok);}
+  .diff-btn.hard:hover{border-color:var(--pink);}
+
+  /* MEMORY */
+  .memo-grid{
+    display:grid;
+    gap:8px;
+    margin-top:10px;
+  }
+  .memo-card{
+    aspect-ratio:1;
+    border-radius:12px;
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    overflow:hidden;
+  }
+  .memo-card .face{display:none;width:78%;height:78%;}
+  .memo-card .face svg{width:100%;height:100%;display:block;}
+  .memo-card.flipped .face, .memo-card.matched .face{display:block;}
+  .memo-card.flipped, .memo-card.matched{background:var(--bg-panel);border-color:var(--pink);}
+  .memo-card.matched{opacity:0.5;cursor:default;}
+  .memo-card .back{font-size:1.3rem;opacity:0.5;}
+  .memo-card.flipped .back, .memo-card.matched .back{display:none;}
+
+  /* CANVAS GAMES */
+  .game-canvas{
+    width:100%;
+    background:linear-gradient(180deg, #402850, #2E1D38);
+    border-radius:14px;
+    touch-action:none;
+    display:block;
+    margin:0 auto;
+  }
+  .game-hud{
+    display:flex;justify-content:space-between;
+    font-size:0.9rem;color:var(--gold);
+    margin:8px 0;font-weight:700;
+  }
+  .start-btn{
+    margin-top:14px;
+    background:var(--pink);
+    color:#2E1D38;
+    border:none;
+    font-weight:800;
+    padding:10px 20px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .start-btn:hover{background:var(--pink-soft);}
+
+  /* CONTROL PADS */
+  .tetris-controls{
+    display:flex;gap:10px;justify-content:center;margin-top:12px;
+  }
+  .tetris-btn{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.15);
+    color:var(--cream);
+    width:48px;height:48px;
+    border-radius:12px;
+    font-size:1.2rem;
+    cursor:pointer;
+  }
+  .tetris-btn:active{background:var(--pink);}
+  .dpad{
+    display:grid;
+    grid-template-columns:repeat(3,48px);
+    grid-template-rows:repeat(2,48px);
+    gap:8px;
+    justify-content:center;
+    margin-top:12px;
+  }
+
+  /* COMPLIMENT */
+  .compliment-box{
+    background:var(--bg-card);
+    border:1px dashed rgba(255,127,166,0.4);
+    border-radius:16px;
+    padding:24px;
+    text-align:center;
+    font-family:'Caveat';
+    font-size:1.5rem;
+    color:var(--pink-soft);
+    min-height:90px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* FINAL MESSAGE */
+  .final-overlay{
+    position:fixed;inset:0;
+    background:rgba(20,10,25,0.85);
+    display:none;
+    align-items:center;justify-content:center;
+    z-index:60;padding:20px;
+  }
+  .final-overlay.open{display:flex;}
+  .final-card{
+    background:linear-gradient(160deg, var(--bg-panel), var(--bg-card));
+    border:1px solid rgba(255,127,166,0.4);
+    border-radius:24px;
+    padding:36px;
+    max-width:480px;
+    text-align:center;
+  }
+  .final-card .big-emoji{font-size:3rem;}
+  .final-card h2{color:var(--pink-soft);font-size:2.4rem;margin:10px 0;}
+  .final-card p{color:rgba(251,243,231,0.85);line-height:1.6;}
+
+  footer{
+    text-align:center;
+    color:rgba(251,243,231,0.4);
+    font-size:0.8rem;
+    margin-top:60px;
+  }
+</style>
+</head>
+<body>
+
+<button id="soundToggle" onclick="toggleSound()" title="Звук вкл/выкл" style="position:fixed;top:16px;right:16px;z-index:40;background:var(--bg-card);border:1px solid rgba(255,255,255,0.15);color:var(--cream);width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;">🔊</button>
+
+<div style="position:fixed;top:16px;left:16px;z-index:40;background:var(--bg-card);border:1px solid rgba(255,255,255,0.15);border-radius:999px;padding:8px 12px;font-size:0.78rem;display:flex;gap:6px;align-items:center;">
+  <a href="index.html" style="color:var(--pink-soft);text-decoration:none;font-weight:800;">RU</a>
+  <span style="opacity:0.3;">|</span>
+  <a href="index-es.html" style="color:rgba(251,243,231,0.5);text-decoration:none;">ES</a>
+</div>
+
+<div class="hero">
+  <div class="sparkle-layer" id="sparkleLayer"></div>
+  <div class="steam">☕🫖</div>
+  <div class="eyebrow">маленький тёплый уголок</div>
+  <h1>Для Marina</h1>
+  <p>Знаю, что тебе сейчас не очень. Сделал(а) для тебя немного уюта — поиграй, отвлекись, и пусть станет капельку теплее 💗</p>
+
+  <div class="meter-wrap">
+    <div class="meter-label">
+      <span>Счётчик уюта</span>
+      <span id="meterPct">0%</span>
+    </div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    <div class="meter-msg" id="meterMsg">Поиграй в игры ниже, чтобы наполнить его теплом ✨</div>
+    <div style="text-align:center;margin-top:8px;">
+      <a href="#" id="resetLink" style="font-size:0.75rem;color:rgba(251,243,231,0.35);text-decoration:none;">сбросить прогресс ↺</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap games">
+  <h2>Мини-игры</h2>
+  <div class="grid">
+
+    <div class="card" data-game="tetris">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🧱</div>
+      <h3>Тетрис</h3>
+      <p>Собирай линии и немного отвлекись от всего.</p>
+    </div>
+
+    <div class="card" data-game="memory">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🧠</div>
+      <h3>Мемори</h3>
+      <p>Найди пары милых персонажей.</p>
+    </div>
+
+    <div class="card" data-game="catcher">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">💗</div>
+      <h3>Лови сердечки</h3>
+      <p>Двигай корзинку и лови падающие сердечки.</p>
+    </div>
+
+    <div class="card" data-game="snake">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🐍</div>
+      <h3>Змейка</h3>
+      <p>Классика — собирай еду, не врежься в стену.</p>
+    </div>
+
+    <div class="card" data-game="compliments">
+      <span class="done-badge">✓ готово</span>
+      <div class="icon">🌸</div>
+      <h3>Тёплые слова</h3>
+      <p>Нажимай и получай маленькие комплименты.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>сделано с любовью, специально для Marina</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="close" id="modalClose">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="final-overlay" id="finalOverlay">
+  <div class="final-card">
+    <div class="big-emoji">🎉💗🫖</div>
+    <h2>Уют на максимуме!</h2>
+    <p>Ты справилась со всеми играми. Помни: это временно, а ты — сильная. Закутайся в плед, налей чай и будь к себе понежнее сегодня. Обнимаю 🤍</p>
+    <button class="start-btn" id="finalClose">Спасибо 💗</button>
+  </div>
+</div>
+
+<script>
+// ---------- SPARKLES ----------
+(function(){
+  const layer = document.getElementById('sparkleLayer');
+  for(let i=0;i<14;i++){
+    const s = document.createElement('div');
+    s.className='sparkle';
+    const size = 2+Math.random()*3;
+    s.style.width=size+'px';
+    s.style.height=size+'px';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=(40+Math.random()*60)+'%';
+    s.style.animationDuration=(5+Math.random()*5)+'s';
+    s.style.animationDelay=(Math.random()*5)+'s';
+    layer.appendChild(s);
+  }
+})();
+
+// ---------- SOUND ----------
+let audioCtx = null;
+let soundOn = true;
+function ensureAudio(){
+  if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+}
+function tone(freq, start, dur, type='sine', gainVal=0.15){
+  if(!soundOn) return;
+  ensureAudio();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  const t0 = audioCtx.currentTime + start;
+  gain.gain.setValueAtTime(0, t0);
+  gain.gain.linearRampToValueAtTime(gainVal, t0+0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, t0+dur);
+  osc.connect(gain).connect(audioCtx.destination);
+  osc.start(t0);
+  osc.stop(t0+dur+0.02);
+}
+function playPop(){ tone(600+Math.random()*300, 0, 0.12, 'triangle', 0.18); }
+function playFlip(){ tone(320, 0, 0.08, 'square', 0.08); }
+function playMatch(){ tone(523,0,0.12,'sine',0.15); tone(659,0.1,0.15,'sine',0.15); tone(784,0.2,0.2,'sine',0.15); }
+function playMismatch(){ tone(180,0,0.18,'sawtooth',0.1); }
+function playCatch(){ tone(700,0,0.08,'sine',0.15); tone(950,0.06,0.1,'sine',0.12); }
+function playMiss(){ tone(140,0,0.15,'sawtooth',0.08); }
+function playChime(){ tone(660,0,0.15,'sine',0.15); tone(880,0.1,0.2,'sine',0.12); }
+function playVictory(){ [523,659,784,1046].forEach((f,i)=>tone(f, i*0.14, 0.25, 'sine', 0.16)); }
+function playMove(){ tone(400,0,0.05,'square',0.06); }
+function playLock(){ tone(220,0,0.1,'triangle',0.14); }
+function playGameOver(){ tone(300,0,0.15,'sawtooth',0.12); tone(200,0.12,0.25,'sawtooth',0.12); }
+function playEat(){ tone(500+Math.random()*200,0,0.08,'triangle',0.15); }
+function toggleSound(){
+  soundOn = !soundOn;
+  document.getElementById('soundToggle').textContent = soundOn ? '🔊' : '🔇';
+  if(soundOn){ ensureAudio(); tone(500,0,0.08,'sine',0.1); }
+}
+
+// ---------- WARMTH METER ----------
+const completed = new Set();
+const totalGames = 5;
+function updateMeter(celebrate=true){
+  const pct = Math.round((completed.size/totalGames)*100);
+  document.getElementById('meterFill').style.width = pct+'%';
+  document.getElementById('meterPct').textContent = pct+'%';
+  const msgs = [
+    'Поиграй в игры ниже, чтобы наполнить его теплом ✨',
+    'Уже теплее! Продолжай 🌷',
+    'Хороший прогресс — ты умница!',
+    'Больше половины позади!',
+    'Ещё чуть-чуть и будет совсем уютно...',
+    'Полный уют! Спасибо, что поиграла 💗'
+  ];
+  document.getElementById('meterMsg').textContent = msgs[completed.size];
+  localStorage.setItem('marinaProgress', JSON.stringify([...completed]));
+  if(completed.size === totalGames && celebrate){
+    playVictory();
+    setTimeout(()=>document.getElementById('finalOverlay').classList.add('open'), 500);
+  }
+}
+function markCompleted(game){
+  if(completed.has(game)) return;
+  completed.add(game);
+  document.querySelector(`.card[data-game="${game}"]`).classList.add('completed');
+  updateMeter();
+}
+
+// ---------- MODAL ----------
+const overlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+document.getElementById('modalClose').onclick = closeModal;
+overlay.onclick = (e)=>{ if(e.target===overlay) closeModal(); };
+document.getElementById('finalClose').onclick = ()=>document.getElementById('finalOverlay').classList.remove('open');
+
+let catcherLoop = null;
+let tetrisInterval = null;
+let tetrisKeyHandler = null;
+let snakeInterval = null;
+let snakeKeyHandler = null;
+
+function closeModal(){
+  overlay.classList.remove('open');
+  modalContent.innerHTML='';
+  if(catcherLoop){ cancelAnimationFrame(catcherLoop); catcherLoop=null; }
+  if(tetrisInterval){ clearInterval(tetrisInterval); tetrisInterval=null; }
+  if(tetrisKeyHandler){ document.removeEventListener('keydown', tetrisKeyHandler); tetrisKeyHandler=null; }
+  if(snakeInterval){ clearInterval(snakeInterval); snakeInterval=null; }
+  if(snakeKeyHandler){ document.removeEventListener('keydown', snakeKeyHandler); snakeKeyHandler=null; }
+}
+
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click', ()=>openGame(card.dataset.game));
+});
+
+function openGame(game){
+  overlay.classList.add('open');
+  if(game==='tetris') renderTetris();
+  if(game==='memory') renderMemory();
+  if(game==='catcher') renderCatcher();
+  if(game==='snake') renderSnake();
+  if(game==='compliments') renderCompliments();
+}
+
+// ---------- TETRIS ----------
+function renderTetris(){
+  modalContent.innerHTML = `
+    <h3>Тетрис 🧱</h3>
+    <p class="modal-sub">Выбери сложность:</p>
+    <div class="diff-select">
+      <button class="diff-btn easy" data-lvl="easy">Легко</button>
+      <button class="diff-btn normal" data-lvl="normal">Обычно</button>
+      <button class="diff-btn hard" data-lvl="hard">Сложно</button>
+    </div>
+  `;
+  modalContent.querySelectorAll('.diff-btn').forEach(btn=>{
+    btn.onclick = ()=>startTetris(btn.dataset.lvl);
+  });
+}
+
+function startTetris(level){
+  const levels = {
+    easy:{speed:850, goal:3, label:'Легко'},
+    normal:{speed:650, goal:5, label:'Обычно'},
+    hard:{speed:420, goal:8, label:'Сложно'}
+  };
+  const lvl = levels[level];
+  const cols=10, rows=16, cell=22;
+  let board = Array.from({length:rows}, ()=>Array(cols).fill(0));
+  const pieces = {
+    I:{matrix:[[1,1,1,1]], color:'#FFB3C6'},
+    O:{matrix:[[1,1],[1,1]], color:'#F3C969'},
+    T:{matrix:[[0,1,0],[1,1,1]], color:'#C9A6E0'},
+    S:{matrix:[[0,1,1],[1,1,0]], color:'#8FD3A6'},
+    Z:{matrix:[[1,1,0],[0,1,1]], color:'#FF7FA6'},
+    J:{matrix:[[1,0,0],[1,1,1]], color:'#FBF3E7'},
+    L:{matrix:[[0,0,1],[1,1,1]], color:'#F3925A'}
+  };
+  const keys = Object.keys(pieces);
+  const goal = lvl.goal;
+  let linesCleared = 0;
+  let current = null;
+  let gameOver = false;
+
+  modalContent.innerHTML = `
+    <h3>Тетрис 🧱 <span style="font-size:1rem;color:rgba(251,243,231,0.5);">— ${lvl.label}</span></h3>
+    <p class="modal-sub">Собери ${goal} линий. Стрелки или кнопки ниже, пробел — сброс вниз.</p>
+    <div class="game-hud"><span id="tetrisLines">Линии: 0</span><span>Цель: ${goal}</span></div>
+    <canvas id="tetrisCanvas" class="game-canvas" width="${cols*cell}" height="${rows*cell}"></canvas>
+    <div class="tetris-controls">
+      <button class="tetris-btn" id="tLeft">⬅️</button>
+      <button class="tetris-btn" id="tRotate">🔄</button>
+      <button class="tetris-btn" id="tRight">➡️</button>
+      <button class="tetris-btn" id="tDown">⬇️</button>
+    </div>
+    <div id="tetrisMsg" style="text-align:center;margin-top:10px;color:rgba(251,243,231,0.7);font-size:0.85rem;"></div>
+  `;
+
+  const canvas = document.getElementById('tetrisCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function newPiece(){
+    const key = keys[Math.floor(Math.random()*keys.length)];
+    const p = pieces[key];
+    const mat = p.matrix.map(r=>[...r]);
+    return { matrix: mat, color: p.color, x: Math.floor(cols/2)-Math.ceil(mat[0].length/2), y: 0 };
+  }
+
+  function collide(piece, offX, offY, matrix){
+    const mat = matrix || piece.matrix;
+    for(let r=0;r<mat.length;r++){
+      for(let c=0;c<mat[r].length;c++){
+        if(!mat[r][c]) continue;
+        const nx = piece.x+c+offX;
+        const ny = piece.y+r+offY;
+        if(nx<0||nx>=cols||ny>=rows) return true;
+        if(ny>=0 && board[ny][nx]) return true;
+      }
+    }
+    return false;
+  }
+
+  function rotateMatrix(matrix){
+    const N=matrix.length, M=matrix[0].length;
+    const res=[];
+    for(let x=0;x<M;x++){
+      const row=[];
+      for(let y=N-1;y>=0;y--) row.push(matrix[y][x]);
+      res.push(row);
+    }
+    return res;
+  }
+
+  function merge(){
+    current.matrix.forEach((row,r)=>{
+      row.forEach((val,c)=>{
+        if(val){
+          const ny=current.y+r, nx=current.x+c;
+          if(ny>=0) board[ny][nx]=current.color;
+        }
+      });
+    });
+  }
+
+  function sweep(){
+    let cleared=0;
+    for(let r=rows-1;r>=0;r--){
+      if(board[r].every(v=>v)){
+        board.splice(r,1);
+        board.unshift(Array(cols).fill(0));
+        cleared++;
+        r++;
+      }
+    }
+    if(cleared>0){
+      linesCleared+=cleared;
+      playMatch();
+      document.getElementById('tetrisLines').textContent = 'Линии: '+linesCleared;
+      if(linesCleared>=goal){
+        markCompleted('tetris');
+        document.getElementById('tetrisMsg').textContent = 'Отлично! Можешь продолжать играть 💗';
+      }
+    }
+  }
+
+  function spawnNew(){
+    current = newPiece();
+    if(collide(current,0,0)){
+      gameOver = true;
+      clearInterval(tetrisInterval);
+      playGameOver();
+      document.getElementById('tetrisMsg').textContent = 'Стакан переполнен — открой игру заново, чтобы попробовать снова.';
+    }
+  }
+
+  function drop(){
+    if(gameOver) return;
+    if(!collide(current,0,1)){
+      current.y++;
+    } else {
+      merge();
+      playLock();
+      sweep();
+      spawnNew();
+    }
+    draw();
+  }
+
+  function move(dir){
+    if(gameOver) return;
+    if(!collide(current,dir,0)){ current.x+=dir; playMove(); draw(); }
+  }
+
+  function rotate(){
+    if(gameOver) return;
+    const rotated = rotateMatrix(current.matrix);
+    const kicks=[0,-1,1,-2,2];
+    for(const k of kicks){
+      if(!collide(current, k, 0, rotated)){
+        current.matrix = rotated;
+        current.x += k;
+        playFlip();
+        draw();
+        return;
+      }
+    }
+  }
+
+  function drawCell(x,y,color){
+    if(y<0) return;
+    ctx.fillStyle=color;
+    ctx.fillRect(x*cell+1,y*cell+1,cell-2,cell-2);
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(board[r][c]) drawCell(c,r,board[r][c]);
+      }
+    }
+    if(current){
+      current.matrix.forEach((row,r)=>{
+        row.forEach((val,c)=>{
+          if(val) drawCell(current.x+c, current.y+r, current.color);
+        });
+      });
+    }
+  }
+
+  spawnNew();
+  draw();
+  tetrisInterval = setInterval(drop, lvl.speed);
+
+  tetrisKeyHandler = (e)=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key==='ArrowLeft'){ move(-1); e.preventDefault(); }
+    else if(e.key==='ArrowRight'){ move(1); e.preventDefault(); }
+    else if(e.key==='ArrowDown'){ drop(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'){ rotate(); e.preventDefault(); }
+    else if(e.key===' '){ while(!collide(current,0,1)){ current.y++; } drop(); e.preventDefault(); }
+  };
+  document.addEventListener('keydown', tetrisKeyHandler);
+
+  document.getElementById('tLeft').onclick=()=>move(-1);
+  document.getElementById('tRight').onclick=()=>move(1);
+  document.getElementById('tRotate').onclick=()=>rotate();
+  document.getElementById('tDown').onclick=()=>drop();
+}
+
+// ---------- CHIBI CHARACTERS (original art, not copyrighted) ----------
+function chibiSVG(cfg){
+  const {skin, hair, eye, style} = cfg;
+  let hairBack = '';
+  let hairFront = '';
+  if(style==='twin'){
+    hairBack = `<ellipse cx="10" cy="40" rx="7" ry="14" fill="${hair}"/><ellipse cx="50" cy="40" rx="7" ry="14" fill="${hair}"/><circle cx="10" cy="52" r="4" fill="${hair}"/><circle cx="50" cy="52" r="4" fill="${hair}"/>`;
+    hairFront = `<path d="M10,30 Q30,10 50,30 L50,22 Q30,6 10,22 Z" fill="${hair}"/>`;
+  } else if(style==='side'){
+    hairBack = `<ellipse cx="14" cy="38" rx="8" ry="16" fill="${hair}"/>`;
+    hairFront = `<path d="M10,30 Q30,8 50,26 Q40,18 26,20 Q16,22 10,30 Z" fill="${hair}"/>`;
+  } else if(style==='spiky'){
+    hairFront = `<path d="M10,28 L16,10 L22,26 L28,8 L34,26 L40,10 L46,26 L50,20 L50,30 Q30,14 10,30 Z" fill="${hair}"/>`;
+  } else {
+    hairFront = `<path d="M10,30 Q30,6 50,30 L50,20 Q30,2 10,20 Z" fill="${hair}"/>`;
+  }
+  return `<svg viewBox="0 0 60 60" preserveAspectRatio="xMidYMid meet">
+    ${hairBack}
+    <circle cx="30" cy="36" r="18" fill="${skin}"/>
+    ${hairFront}
+    <circle cx="22" cy="36" r="4.5" fill="${eye}"/>
+    <circle cx="38" cy="36" r="4.5" fill="${eye}"/>
+    <circle cx="23.3" cy="34.3" r="1.3" fill="#fff"/>
+    <circle cx="39.3" cy="34.3" r="1.3" fill="#fff"/>
+    <circle cx="16" cy="42" r="3" fill="#ff9db3" opacity="0.55"/>
+    <circle cx="44" cy="42" r="3" fill="#ff9db3" opacity="0.55"/>
+    <path d="M27,45 Q30,48 33,45" stroke="#7a4a35" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+const CHIBI_CHARACTERS = [
+  {skin:'#FFE0C2', hair:'#FF7FA6', eye:'#8B5FBF', style:'straight'},
+  {skin:'#FFE0C2', hair:'#9AD1E8', eye:'#4A7FA8', style:'side'},
+  {skin:'#F7D0B0', hair:'#C9A6E0', eye:'#7A4FA0', style:'twin'},
+  {skin:'#FFE0C2', hair:'#8FD3A6', eye:'#3F8F5F', style:'spiky'},
+  {skin:'#F7D0B0', hair:'#F3C969', eye:'#B5842A', style:'straight'},
+  {skin:'#FFE0C2', hair:'#FF9D6C', eye:'#B5502A', style:'side'},
+  {skin:'#F7D0B0', hair:'#B98EDB', eye:'#5C3A85', style:'twin'},
+  {skin:'#FFE0C2', hair:'#6EC6C6', eye:'#2E7A7A', style:'spiky'},
+  {skin:'#F7D0B0', hair:'#E88AA0', eye:'#8B3F55', style:'straight'},
+  {skin:'#FFE0C2', hair:'#7EA8D8', eye:'#345C8F', style:'twin'},
+  {skin:'#F7D0B0', hair:'#D9A5E0', eye:'#7A3F8F', style:'side'},
+  {skin:'#FFE0C2', hair:'#A8C97F', eye:'#4F6B2E', style:'spiky'}
+];
+
+// ---------- MEMORY ----------
+function renderMemory(){
+  modalContent.innerHTML = `
+    <h3>Мемори 🧠</h3>
+    <p class="modal-sub">Выбери сложность:</p>
+    <div class="diff-select">
+      <button class="diff-btn easy" data-lvl="easy">Легко (6 пар)</button>
+      <button class="diff-btn normal" data-lvl="normal">Обычно (8 пар)</button>
+      <button class="diff-btn hard" data-lvl="hard">Сложно (10 пар)</button>
+    </div>
+  `;
+  modalContent.querySelectorAll('.diff-btn').forEach(btn=>{
+    btn.onclick = ()=>startMemory(btn.dataset.lvl);
+  });
+}
+
+function startMemory(level){
+  const levels = {
+    easy:{pairs:6, cols:3, label:'Легко'},
+    normal:{pairs:8, cols:4, label:'Обычно'},
+    hard:{pairs:10, cols:5, label:'Сложно'}
+  };
+  const lvl = levels[level];
+  const chosen = CHIBI_CHARACTERS.slice(0, lvl.pairs);
+  let deck = chosen.flatMap((c,i)=>[i,i]);
+  deck.sort(()=>Math.random()-0.5);
+
+  modalContent.innerHTML = `
+    <h3>Мемори 🧠 <span style="font-size:1rem;color:rgba(251,243,231,0.5);">— ${lvl.label}</span></h3>
+    <p class="modal-sub">Найди все пары персонажей.</p>
+    <div class="memo-grid" id="memoGrid" style="grid-template-columns:repeat(${lvl.cols}, 1fr);"></div>
+  `;
+  const grid = document.getElementById('memoGrid');
+  let flipped = [];
+  let lock = false;
+  let matches = 0;
+  deck.forEach((charIdx)=>{
+    const cardEl = document.createElement('div');
+    cardEl.className='memo-card';
+    cardEl.dataset.char=charIdx;
+    cardEl.innerHTML = `<span class="back">✨</span><span class="face">${chibiSVG(CHIBI_CHARACTERS[charIdx])}</span>`;
+    cardEl.onclick = ()=>{
+      if(lock || cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+      cardEl.classList.add('flipped');
+      playFlip();
+      flipped.push(cardEl);
+      if(flipped.length===2){
+        lock = true;
+        const [a,b] = flipped;
+        if(a.dataset.char === b.dataset.char){
+          a.classList.add('matched'); b.classList.add('matched');
+          playMatch();
+          matches++;
+          flipped=[]; lock=false;
+          if(matches===lvl.pairs) markCompleted('memory');
+        } else {
+          playMismatch();
+          setTimeout(()=>{
+            a.classList.remove('flipped'); b.classList.remove('flipped');
+            flipped=[]; lock=false;
+          }, 700);
+        }
+      }
+    };
+    grid.appendChild(cardEl);
+  });
+}
+
+// ---------- CATCHER ----------
+function renderCatcher(){
+  modalContent.innerHTML = `
+    <h3>Лови сердечки 💗</h3>
+    <p class="modal-sub">Выбери сложность:</p>
+    <div class="diff-select">
+      <button class="diff-btn easy" data-lvl="easy">Легко</button>
+      <button class="diff-btn normal" data-lvl="normal">Обычно</button>
+      <button class="diff-btn hard" data-lvl="hard">Сложно</button>
+    </div>
+  `;
+  modalContent.querySelectorAll('.diff-btn').forEach(btn=>{
+    btn.onclick = ()=>startCatcher(btn.dataset.lvl);
+  });
+}
+
+function startCatcher(level){
+  const levels = {
+    easy:{goal:10, baseSpeed:1.1, spawnBase:60, basketW:74, label:'Легко'},
+    normal:{goal:15, baseSpeed:1.6, spawnBase:45, basketW:60, label:'Обычно'},
+    hard:{goal:22, baseSpeed:2.3, spawnBase:32, basketW:46, label:'Сложно'}
+  };
+  const lvl = levels[level];
+  modalContent.innerHTML = `
+    <h3>Лови сердечки 💗 <span style="font-size:1rem;color:rgba(251,243,231,0.5);">— ${lvl.label}</span></h3>
+    <div class="game-hud"><span id="catchScore">Счёт: 0</span><span>Цель: ${lvl.goal}</span></div>
+    <canvas id="catchCanvas" class="game-canvas" width="400" height="320"></canvas>
+    <button class="start-btn" id="catchStart">Начать</button>
+  `;
+  const canvas = document.getElementById('catchCanvas');
+  const ctx = canvas.getContext('2d');
+  let basketX = canvas.width/2;
+  const basketW = lvl.basketW, basketH = 16;
+  let hearts = [];
+  let score = 0;
+  let running = false;
+
+  function spawnHeart(){
+    hearts.push({x: Math.random()*(canvas.width-20)+10, y:-10, speed: lvl.baseSpeed+Math.random()*lvl.baseSpeed*0.8});
+  }
+  let spawnTimer = 0;
+
+  function pointerMove(clientX){
+    const rect = canvas.getBoundingClientRect();
+    const scale = canvas.width/rect.width;
+    basketX = (clientX-rect.left)*scale;
+    basketX = Math.max(basketW/2, Math.min(canvas.width-basketW/2, basketX));
+  }
+  canvas.addEventListener('mousemove', e=>pointerMove(e.clientX));
+  canvas.addEventListener('touchmove', e=>{ pointerMove(e.touches[0].clientX); e.preventDefault(); }, {passive:false});
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='#FF7FA6';
+    ctx.beginPath();
+    ctx.roundRect(basketX-basketW/2, canvas.height-30, basketW, basketH, 8);
+    ctx.fill();
+    ctx.font='22px sans-serif';
+    hearts.forEach(h=>{
+      ctx.fillText('💗', h.x-11, h.y);
+    });
+  }
+
+  let frameCount = 0;
+  function loop(){
+    if(!running) return;
+    frameCount++;
+    spawnTimer++;
+    const spawnRate = Math.max(18, lvl.spawnBase - Math.floor(frameCount/240)*4);
+    if(spawnTimer>spawnRate){ spawnHeart(); spawnTimer=0; }
+    hearts.forEach(h=> h.y += h.speed);
+    hearts = hearts.filter(h=>{
+      if(h.y > canvas.height-34 && h.y < canvas.height-14 && Math.abs(h.x-basketX)<basketW/2+10){
+        score++;
+        playCatch();
+        document.getElementById('catchScore').textContent = 'Счёт: '+score;
+        if(score>=lvl.goal && running){
+          running=false;
+          markCompleted('catcher');
+        }
+        return false;
+      }
+      if(h.y >= canvas.height+20){ playMiss(); return false; }
+      return true;
+    });
+    draw();
+    catcherLoop = requestAnimationFrame(loop);
+  }
+
+  document.getElementById('catchStart').onclick = ()=>{
+    score=0; hearts=[]; running=true;
+    document.getElementById('catchScore').textContent='Счёт: 0';
+    loop();
+  };
+  draw();
+}
+
+// ---------- SNAKE ----------
+function renderSnake(){
+  modalContent.innerHTML = `
+    <h3>Змейка 🐍</h3>
+    <p class="modal-sub">Выбери сложность:</p>
+    <div class="diff-select">
+      <button class="diff-btn easy" data-lvl="easy">Легко</button>
+      <button class="diff-btn normal" data-lvl="normal">Обычно</button>
+      <button class="diff-btn hard" data-lvl="hard">Сложно</button>
+    </div>
+  `;
+  modalContent.querySelectorAll('.diff-btn').forEach(btn=>{
+    btn.onclick = ()=>startSnake(btn.dataset.lvl);
+  });
+}
+
+function startSnake(level){
+  const levels = {
+    easy:{tick:180, goal:8, label:'Легко'},
+    normal:{tick:130, goal:12, label:'Обычно'},
+    hard:{tick:90, goal:18, label:'Сложно'}
+  };
+  const lvl = levels[level];
+  const gridN = 16, cell = 20;
+  modalContent.innerHTML = `
+    <h3>Змейка 🐍 <span style="font-size:1rem;color:rgba(251,243,231,0.5);">— ${lvl.label}</span></h3>
+    <div class="game-hud"><span id="snakeScore">Еда: 0</span><span>Цель: ${lvl.goal}</span></div>
+    <canvas id="snakeCanvas" class="game-canvas" width="${gridN*cell}" height="${gridN*cell}"></canvas>
+    <div class="dpad">
+      <div></div><button class="tetris-btn" id="snUp">⬆️</button><div></div>
+      <button class="tetris-btn" id="snLeft">⬅️</button><button class="tetris-btn" id="snDown">⬇️</button><button class="tetris-btn" id="snRight">➡️</button>
+    </div>
+    <div id="snakeMsg" style="text-align:center;margin-top:10px;color:rgba(251,243,231,0.7);font-size:0.85rem;"></div>
+  `;
+
+  const canvas = document.getElementById('snakeCanvas');
+  const ctx = canvas.getContext('2d');
+  let snake = [{x:7,y:8},{x:6,y:8},{x:5,y:8}];
+  let dir = {x:1,y:0};
+  let nextDir = {x:1,y:0};
+  let food = null;
+  let eaten = 0;
+  let gameOver = false;
+
+  function placeFood(){
+    let pos;
+    do{
+      pos = {x:Math.floor(Math.random()*gridN), y:Math.floor(Math.random()*gridN)};
+    } while(snake.some(s=>s.x===pos.x && s.y===pos.y));
+    food = pos;
+  }
+  placeFood();
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.font=(cell-4)+'px sans-serif';
+    ctx.fillText('💗', food.x*cell+2, food.y*cell+cell-3);
+    snake.forEach((s,i)=>{
+      ctx.fillStyle = i===0 ? '#FF7FA6' : '#C9A6E0';
+      ctx.beginPath();
+      ctx.roundRect(s.x*cell+1, s.y*cell+1, cell-2, cell-2, 5);
+      ctx.fill();
+    });
+  }
+
+  function tick(){
+    if(gameOver) return;
+    dir = nextDir;
+    const head = {x:snake[0].x+dir.x, y:snake[0].y+dir.y};
+    if(head.x<0||head.x>=gridN||head.y<0||head.y>=gridN||snake.some(s=>s.x===head.x&&s.y===head.y)){
+      gameOver = true;
+      clearInterval(snakeInterval);
+      playGameOver();
+      document.getElementById('snakeMsg').textContent = 'Врезалась! Открой игру заново, чтобы попробовать снова.';
+      return;
+    }
+    snake.unshift(head);
+    if(head.x===food.x && head.y===food.y){
+      eaten++;
+      playEat();
+      document.getElementById('snakeScore').textContent = 'Еда: '+eaten;
+      if(eaten>=lvl.goal) markCompleted('snake');
+      placeFood();
+    } else {
+      snake.pop();
+    }
+    draw();
+  }
+
+  function setDir(x,y){
+    if(dir.x===-x && dir.y===-y) return;
+    nextDir = {x,y};
+  }
+
+  draw();
+  snakeInterval = setInterval(tick, lvl.tick);
+
+  snakeKeyHandler = (e)=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key==='ArrowLeft'){ setDir(-1,0); e.preventDefault(); }
+    else if(e.key==='ArrowRight'){ setDir(1,0); e.preventDefault(); }
+    else if(e.key==='ArrowUp'){ setDir(0,-1); e.preventDefault(); }
+    else if(e.key==='ArrowDown'){ setDir(0,1); e.preventDefault(); }
+  };
+  document.addEventListener('keydown', snakeKeyHandler);
+
+  document.getElementById('snUp').onclick=()=>setDir(0,-1);
+  document.getElementById('snDown').onclick=()=>setDir(0,1);
+  document.getElementById('snLeft').onclick=()=>setDir(-1,0);
+  document.getElementById('snRight').onclick=()=>setDir(1,0);
+}
+
+// ---------- COMPLIMENTS ----------
+function renderCompliments(){
+  const lines = [
+    'Ты справляешься лучше, чем думаешь.',
+    'Сегодня можно ничего не успевать — и это нормально.',
+    'Твоя улыбка правда делает мир теплее.',
+    'Ты имеешь право на отдых, плед и тишину.',
+    'Здесь есть человек, который тебе рад — привет от меня.',
+    'Ты сильная, даже когда чувствуешь себя иначе.',
+    'Разреши себе побыть слабой сегодня — завтра снова будешь супергероиней.',
+    'Ты заслуживаешь чашку горячего чая прямо сейчас.',
+    'У тебя классное чувство юмора.',
+    'С тобой правда интересно общаться.',
+    'Не обязательно быть идеальной, чтобы день был хорошим.',
+    'Маленькие шаги тоже считаются.',
+    'Хорошо, что ты есть.',
+    'Надеюсь, сегодня у тебя найдётся минутка на отдых.',
+    'Твои мысли и идеи стоит слушать.',
+    'Ты заслуживаешь поддержку, даже если не просишь о ней.'
+  ];
+  let seen = new Set();
+  modalContent.innerHTML = `
+    <h3>Тёплые слова 🌸</h3>
+    <div class="compliment-box" id="complimentText">Нажми кнопку, чтобы получить тёплые слова</div>
+    <button class="start-btn" id="complimentBtn" style="margin-top:16px;">Ещё 💗</button>
+  `;
+  document.getElementById('complimentBtn').onclick = ()=>{
+    if(seen.size>=lines.length) seen.clear();
+    let idx;
+    do{ idx = Math.floor(Math.random()*lines.length); } while(seen.has(idx));
+    seen.add(idx);
+    document.getElementById('complimentText').textContent = lines[idx];
+    playChime();
+    if(seen.size>=3) markCompleted('compliments');
+  };
+}
+
+// ---------- RESTORE / RESET ----------
+(function restoreProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem('marinaProgress')||'[]');
+    saved.forEach(g=>{
+      completed.add(g);
+      const card = document.querySelector(`.card[data-game="${g}"]`);
+      if(card) card.classList.add('completed');
+    });
+    if(saved.length) updateMeter(false);
+  }catch(e){}
+})();
+
+function resetProgress(){
+  completed.clear();
+  localStorage.removeItem('marinaProgress');
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('completed'));
+  updateMeter(false);
+}
+document.getElementById('resetLink').onclick = resetProgress;
+</script>
+</body>
+</html>
